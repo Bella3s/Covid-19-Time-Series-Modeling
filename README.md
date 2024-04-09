@@ -8,13 +8,26 @@ This project goes through a model iteration process, starting with a naive time 
 
 ### Repository Structure
 ```
-├── images ()
-├── index.ipynb () 
-├── owid-covid-data.csv ()
-├── pdfs ()
-├── README.md ()
-├── world_country_and_usa_states_latitude_and_longitude_values.csv ()
+├── images 
+    (https://github.com/Bella3s/Covid-19-Time-Series-Modeling/tree/main/images)
+
+├── pdfs 
+    (https://github.com/Bella3s/Covid-19-Time-Series-Modeling/tree/main/pdfs)
+
+├── README.md 
+    (https://github.com/Bella3s/Covid-19-Time-Series-Modeling/blob/main/README.md)
+
+├── index.ipynb 
+    (https://github.com/Bella3s/Covid-19-Time-Series-Modeling/blob/main/index.ipynb) 
+
+├── owid-covid-data.csv 
+    (https://github.com/Bella3s/Covid-19-Time-Series-Modeling/blob/main/owid-covid-data.csv)
+
+├── world_country_and_usa_states_latitude_and_longitude_values.csv 
+    (https://github.com/Bella3s/Covid-19-Time-Series-Modeling/blob/main/world_country_and_usa_states_latitude_and_longitude_values.csv)
 ```
+
+The non-technical presentation can be found under [pdfs/presentation](https://github.com/Bella3s/Covid-19-Time-Series-Modeling/blob/main/pdfs/presentation.pdf)
 
 ## The Business + Business Problem
 
@@ -79,16 +92,16 @@ The models explored in this project include:
 5. Prophet
 6. Multivariate Prophet
 
-All Models were compared by their root mean squared error from the predictions on the validation set.  
+All Models were compared by their root mean squared error and mean absolute error from the predictions on the validation set.  
 
-| Model | RMSE | 
+| Model | RMSE | MAE
 |:--|:--|
-| Naive | 2,343 |
-| ARIMA | 1,944 |
-| Multivariate ARIMA | 968 |
-| Linear Regression | 809 |
-| Prophet | 2164 |
-| Multivariate Prophet | 904 |
+| Naive | 2,343 | 2,305 |
+| ARIMA | 1,944 | 1,897 | 
+| Multivariate ARIMA | 968 | 931 |
+| Linear Regression | 809 | 731 | 
+| Prophet | 2,164 | 1,972 |
+| Multivariate Prophet | 904 | 760 |
 
 The Multivariate Prophet model was chosen as the final model even though the Linear Regression model had a lower RMSE because the Linear Regression model was predicting negative numbers for the number of deaths, the scores for these two models were quite close, and the prophet module is more suited for forecasting and analyzing trends in time series data.
 
@@ -96,6 +109,10 @@ The Multivariate Prophet model was chosen as the final model even though the Lin
 
 <img src=images/final_predictions_prophet.png>
 <img src=images/final_predictions_matplotlib.png>
+
+Our model performed better on the validation data than it did on the test data. In part, this is because the pandemic had more or less ended by this time (mid 2023), which means the actual values for our data lie very close to zero, whereas our model is predicting the deaths to increase once again (similar to the actuals of July in 2020).
+
+With an ending root mean squared error of 817,900 and mean absolute error of only 836, I would say this is a fairly good model, taking into account that this estimation is for the whole continent of Asia rather than one country alone.
 
 ## Conclusion + Recommendations
 
