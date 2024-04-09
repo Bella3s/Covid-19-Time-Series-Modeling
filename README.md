@@ -112,7 +112,7 @@ The Multivariate Prophet model was chosen as the final model even though the Lin
 
 Our model performed better on the validation data than it did on the test data. In part, this is because the pandemic had more or less ended by this time (mid 2023), which means the actual values for our data lie very close to zero, whereas our model is predicting the deaths to increase once again (similar to the actuals of July in 2020).
 
-With an ending root mean squared error of 817,900 and mean absolute error of only 836, I would say this is a fairly good model, taking into account that this estimation is for the whole continent of Asia rather than one country alone.
+With an ending root mean squared error of 904 and mean absolute error of only 836, I would say this is a fairly good model, taking into account that this estimation is for the whole continent of Asia rather than one country alone.
 
 ## Conclusion + Recommendations
 
