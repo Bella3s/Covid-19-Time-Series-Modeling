@@ -29,6 +29,40 @@ This project goes through a model iteration process, starting with a naive time 
 
 The non-technical presentation can be found under [pdfs/presentation](https://github.com/Bella3s/Covid-19-Time-Series-Modeling/blob/main/pdfs/presentation.pdf)
 
+### Reproducing via Google CoLabs
+
+If reproducing this project via Google CoLabs, there are certain extra steps that need to be taken to run the code properly. Firstly, the pmdarima and prophet libraries need to be installed.  Secondly, the environment needs to be set up to download the datasets from Kaggle.  **Note that this step requires you to have a Kaggle username and API key.**  Lastly, the datasets need to be downloaded and unzipped prior to use.  This code is in the notebook to accomplish this that just needs to be uncommented, or see below for the snippet of just the extra code that needs to be run (all the imports from the notebook will need to be run as well for the project to run properly). 
+
+```
+# For Google CoLab might need to install pmdarima and Prophet
+!pip install pmdarima
+!pip install Prophet
+
+# Prep Google CoLab environment to download data from Kaggle
+!mkdir ~/.kaggle
+!touch ~/.kaggle/kaggle.json
+
+username = ''  ## Your Kaggle username
+api_key = ''  ## Your Kaggle API key
+
+api_token = {"username": username,
+             "key": api_key}
+
+with open('/root/.kaggle/kaggle.json', 'w') as file:
+    json.dump(api_token, file)
+
+!chmod 600 ~/.kaggle/kaggle.json
+
+# Download the dataset from Kaggle
+!kaggle datasets download -d caesarmario/our-world-in-data-covid19-dataset
+!kaggle datasets download -d paultimothymooney/latitude-and-longitude-for-every-country-and-state
+
+# Unzip the downloaded data
+shutil.unpack_archive('our-world-in-data-covid19-dataset.zip', '/content')
+shutil.unpack_archive('latitude-and-longitude-for-every-country-and-state.zip', '/content')
+
+```
+
 ## The Business + Business Problem
 
 <img src=images/covid_map.jpg>
@@ -61,7 +95,7 @@ There are numerous missing values in the complete dataset, as well as the Asia s
 After the data is aggregated (see table below), the project displays some visuals of the final dataset for a more thorough understanding of the data being used.  
 
 | Variable | How to aggregate |
-|:--|:--|
+|--|--|
 |`continent` | drop |
 | `location` | drop |
 | `date` | unique value per day | 
