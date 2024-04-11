@@ -154,17 +154,24 @@ Our model performed better on the validation data than it did on the test data. 
 
 With an ending root mean squared error of 817,900 I would say this is a fairly good model, taking into account that this estimation is for the whole continent of Asia rather than one country alone.  
 
-1. **See how we can make our data more accurate.**  There is always room for improvement in this area. The amount of missing data in the dataset that led to dropping so many variables is a prime example of how the data collection can be improved.
 
-2. **Utilize models like these ones in future epidemics or pandemics.**  Clearly, these predictive models can be quite useful.  If we can forecast how detrimental an outbreak will be, then public health officials will be more equipped (and motivated) to handle the situation.  They will be better prepared to implement policy changes to help curb the harmful affects of an outbreak, and ideally lessen the number of unnecessary deaths.  
+1. **Utilize the model to advise public health officials.**  Once we have forecasting the amount of harm predicted, we can then advise public health officials on what actions to take concerning public health measures such as mask mandates, social distancing, and stay-at-home orders (either to make more strict or lessen).
 
-3. **Investigate how to further incorporate changing public health policies into time series data.**  A big drawback of performing a time series model from this data was that interesting variables -- such as extreme poverty, diabetes prevalence, percent smokers, number of hospital beds per thousand people, population density, etc. -- were not viable to use in the time series prediction.  The variables were constant for all dates which means they had no implication on the modeling process.  However, these factors realistically play a role in the number of deaths caused by Covid-19.  Furthermore, realistically, these numbers do change over time and thus could be used for the time series forecasting. If they can be more accurate and versatile per reporting period, then we can create a more proficient predictive model. 
 
-4. **Investigate why deaths tend to be reported higher on Fridays.** From both the multivariate prophet models (the final model and the model evaluated on the validation set), we can see a weekly trend where there is a spike in number of deaths on Fridays. It would be interesting to investigate why this is. Does it have to do with how the numbers are reported?  We were using smoothed data so that seems less likely.  Can we connect it to how and when people are contracting the disease?  Can we connect it to situational occurrences in hospitals?  Of course, to really dig into this phenomenon we would need to break the data up by country once again and investigate deeper from there. 
+2. **Utilize the model to aid in resource planning.**  From our forecasts of when spikes will occur, we can make recommendations  to vendors and hospitals concerning resource planning. 
 
-### Next Steps:
+
+3. **Investigate why deaths tend to be reported higher on Fridays.** From our final model, we can see a weekly trend where reported number of deaths is generally higher on Fridays by about 4 people, and lower earlier in the week by about 3 people. While a slight trend, it would be interesting to investigate why this is;  if it is anything in the hospitals systems or public health trends that can be addressed in such a way that number of deaths lessens.
+
+
+
+###  Next Steps
+
 There is always more to do and try!  Below are some ideas for expanding on this project:
 
+
+- Continue to make data more accurate and complete
+    - The missing, purposefully mis-reported, and unusable data all made our model less accurate than it could have been.  Looking for ways in the future to gain accurate, consistent data, as well as ways to utilize the 'constants' would be beneficial in future model endeavors. 
 - Data by continent
     - compare predictive models by continent
     - compare how well each continent handled the pandemic
